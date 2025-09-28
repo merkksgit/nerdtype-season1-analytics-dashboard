@@ -26,13 +26,13 @@ pip install -r requirements.txt
 ## Architecture
 
 ### Single-File Application
-- **Entry Point**: `dashboard.py` (220 lines) - contains entire application
+- **Entry Point**: `dashboard.py` (335 lines) - contains entire application
 - **Data Source**: `scores_data.json` - typing game scores with timestamps, WPM, accuracy, and user data
 - **Framework**: Streamlit with Pandas for data processing and Plotly for visualization
 
 ### Key Functions
-- `load_data()` (line 18) - Loads and transforms JSON data with caching
-- `main()` (line 53) - Application entry point and layout orchestration
+- `load_data()` (line 40) - Loads and transforms JSON data with caching
+- `main()` (line 74) - Application entry point and layout orchestration
 - Page configuration (line 9) - Streamlit app settings
 
 ### Data Flow
@@ -42,9 +42,9 @@ pip install -r requirements.txt
 4. Cached using `@st.cache_data` for performance
 
 ### Dashboard Layout
-- 4-column metrics row (total scores, average WPM, top accuracy, active users)
-- 2x2 chart grid: peak hours, mode popularity, accuracy distribution, score progression
-- 3-column summary statistics
+- 3 rows of 4-column metrics (total players, games, WPM, accuracy, etc.)
+- 2x2 chart grid: peak hours, mode popularity, accuracy distribution, difficulty multiplier impact
+- Score progression timeline chart
 
 ## Data Structure
 
@@ -55,11 +55,15 @@ The JSON contains a `scores` object with score entries:
   "authenticatedScore": true,
   "date": "2025-06-30T21:01:00.641Z",
   "difficultyMultiplier": 1.2083333333333335,
-  "mode": "Custom Mode|Classic Mode",
+  "mode": "Custom Mode",
   "score": 728,
-  "wpm": 60,
-  "userEmail": "user@example.com",
-  "wordList": "finnish"
+  "submittedAt": "2025-06-30T21:01:00.641Z",
+  "timestamp": 1751317260641,
+  "userEmail": "merkks@protonmail.com",
+  "userId": "EtHFTsxMHZPEmUV2pwNb0CnJjSq2",
+  "username": "merkks",
+  "wordList": "finnish",
+  "wpm": 60
 }
 ```
 
