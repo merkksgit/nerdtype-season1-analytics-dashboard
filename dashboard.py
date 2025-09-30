@@ -57,7 +57,7 @@ def load_data():
 
     # Convert to DataFrame
     records = []
-    for score_id, score_data in data["scores"].items():
+    for score_id, score_data in data.items():
         record = score_data.copy()
         record["score_id"] = score_id
         # Convert accuracy percentage to float
