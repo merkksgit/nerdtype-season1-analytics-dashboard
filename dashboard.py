@@ -73,12 +73,15 @@ def load_data():
 
 def main():
     # Header
-    col1, col2 = st.columns([1, 9])
-    with col1:
-        st.image("images/logo-no-keyboard-blue-bg-192x192.png", width=80)
+    col1, col2, col3 = st.columns([1, 1, 1])
     with col2:
-        st.markdown("# NerdType Season 1 Analytics")
-    st.markdown("**Complete Season Overview**")
+        st.image("images/logo-text-no-keyboard.png", use_container_width=True)
+        st.markdown(
+            "<h3 style='text-align: center;'>Season 1 Analytics</h3>",
+            unsafe_allow_html=True,
+        )
+
+    st.markdown("<br>", unsafe_allow_html=True)
 
     # Load data
     df = load_data()
