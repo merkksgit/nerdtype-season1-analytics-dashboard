@@ -146,11 +146,11 @@ def main():
         )
 
     with col4:
-        date_range = df["datetime"].max() - df["datetime"].min()
+        hardcore_games = len(df[df["mode"] == "Hardcore Mode"])
         st.metric(
-            label="Season Duration",
-            value=f"{date_range.days} days",
-            help="Total duration of Season 1",
+            label="Hardcore Mode Games Completed",
+            value=hardcore_games,
+            help="Number of games completed in Hardcore Mode",
         )
 
     # Game Mode Metrics Row 3
