@@ -4,6 +4,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 from datetime import datetime
 import json
+import base64
 
 # Set page config
 st.set_page_config(
@@ -73,13 +74,22 @@ def load_data():
 
 def main():
     # Header
-    col1, col2, col3 = st.columns([1, 1, 1])
-    with col2:
-        st.image("images/logo-text-no-keyboard.png", use_container_width=True)
-        st.markdown(
-            "<h3 style='text-align: center;'>Season 1 Analytics</h3>",
-            unsafe_allow_html=True,
-        )
+    with open("images/logo-text-no-keyboard.png", "rb") as img_file:
+        img_data = base64.b64encode(img_file.read()).decode()
+
+    st.markdown(
+        f"""
+        <div style='display: flex; justify-content: center;'>
+            <img src='data:image/png;base64,{img_data}' width='400'>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    st.markdown(
+        "<h3 style='text-align: center;'>Season 1 Analytics from www.nerdtypegame.com</h3>",
+        unsafe_allow_html=True,
+    )
 
     st.markdown("<br>", unsafe_allow_html=True)
 
